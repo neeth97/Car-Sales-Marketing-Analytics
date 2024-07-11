@@ -1,6 +1,6 @@
-**Making Sense of Car Ad Data.
+**Making Sense of Car Ad Data.**
 
-Questions to answer:**
+**Questions to answer:**
 
 **Finding the Best Deals:**
 Which ad category is cheapest per click?
