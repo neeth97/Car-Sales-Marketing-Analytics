@@ -13,6 +13,7 @@ def create_new_columns_ad_channels():
     new_ad_channels_df['campaign'].fillna(new_ad_channels_df['partner'], inplace=True)
 
     return new_ad_channels_df
+    
 # we identify the first touch for every user_id and store that in this dataframe.
 # first touch attribution a marketing technique where we care a lot about the
 # first channel an user interacts with first.
