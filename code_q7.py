@@ -31,3 +31,21 @@ def calculate_percent_of_sales_with_no_click_for_90_days():
     return (len(rows_greater_than_90_days) / len(merged_sales_last_touch_df))*100
 
 calculate_percent_of_sales_with_no_click_for_90_days()
+
+def calculate_percent_of_sales_with_no_click_for_60_days():
+    merged_sales_last_touch_df = calculate_time_diff_between_sale_and_last_click()
+    # filter rows where time difference is greater than 60 days
+    rows_greater_than_60_days = merged_sales_last_touch_df[merged_sales_last_touch_df['time_diff_in_days'] > 60]
+
+    return (len(rows_greater_than_60_days) / len(merged_sales_last_touch_df))*100
+
+calculate_percent_of_sales_with_no_click_for_60_days()
+
+def calculate_percent_of_sales_with_no_click_for_30_days():
+    merged_sales_last_touch_df = calculate_time_diff_between_sale_and_last_click()
+    # filter rows where time difference is greater than 30 days
+    rows_greater_than_30_days = merged_sales_last_touch_df[merged_sales_last_touch_df['time_diff_in_days'] > 30]
+
+    return (len(rows_greater_than_30_days) / len(merged_sales_last_touch_df))*100
+
+calculate_percent_of_sales_with_no_click_for_30_days()
