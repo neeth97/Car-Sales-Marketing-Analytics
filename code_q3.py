@@ -43,3 +43,20 @@ def calculate_monthly_sales_oct_to_dec_per_campaign():
     return oct_to_dec_monthly_sales_per_campaign_df
 
 calculate_monthly_sales_oct_to_dec_per_campaign()
+
+
+def calcualte_month_over_month_growth_or_decline_in_sales():
+
+  oct_to_dec_monthly_sales_per_campaign_df = calculate_monthly_sales_oct_to_dec_per_campaign()
+
+  # Calculate month-over-month growth/decline
+  oct_to_dec_monthly_sales_per_campaign_df['growth_nov_to_oct'] = (oct_to_dec_monthly_sales_per_campaign_df['sales_in_nov'] - oct_to_dec_monthly_sales_per_campaign_df['sales_in_oct']) / oct_to_dec_monthly_sales_per_campaign_df['sales_in_oct']
+  oct_to_dec_monthly_sales_per_campaign_df['growth_dec_to_nov'] = (oct_to_dec_monthly_sales_per_campaign_df['sales_in_dec'] - oct_to_dec_monthly_sales_per_campaign_df['sales_in_nov']) / oct_to_dec_monthly_sales_per_campaign_df['sales_in_nov']
+
+  # Replace any NaN or infinite values with 0, in case of division by 0
+  # oct_to_dec_monthly_sales_per_campaign_df.replace([np.inf, -np.inf], np.nan, inplace=True)
+  # oct_to_dec_monthly_sales_per_campaign_df.fillna(0, inplace=True)
+
+  return oct_to_dec_monthly_sales_per_campaign_df
+calcualte_month_over_month_growth_or_decline_in_sales().sort_values(by = 'growth_nov_to_oct')
+#calcualte_month_over_month_growth_or_decline_in_sales().sort_values(by = 'growth_dec_to_nov')
